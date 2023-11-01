@@ -1,3 +1,6 @@
 from django.contrib import admin
+from inicio.models import Cocina, Heladera, Televisor
 
-# Register your models here.
+admin.site.register(Cocina)
+admin.site.register(Heladera)
+admin.site.register(Televisor)

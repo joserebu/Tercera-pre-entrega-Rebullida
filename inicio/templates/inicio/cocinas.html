@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Cocina guardada exitosamente: {{cocina.marca}}</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Cocinas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Cocinas
+{% endblock h1_header %}
+
+{% block main %}
+
+<form action="">
+    <input type="text" name="marca" placeholder="Domec, Longvie..." >
+    <input type="submit" value="Buscar">
+</form>
+
+<ul>
+    {% for cocina in listado_cocina %}
+    <li>{{cocina}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock main %}

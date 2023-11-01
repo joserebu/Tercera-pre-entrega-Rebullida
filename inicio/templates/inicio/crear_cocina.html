@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Crear Cocina</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Crear Cocina
+{% endblock h1_header %}
+
+{% block main %}
+<p>
+    <b>Ingrese los datos de la cocina</b>
+</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{formulario}}
+    <input type="submit" value="Crear">
+</form>
+
+{% endblock main %}
