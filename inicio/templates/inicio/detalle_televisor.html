@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Detalle televisor {{televisor.id}}</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Detalle Televisor {{televisor.marca}}
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Marca: {{televisor.marca}}</li>
+    <li>Modelo: {{televisor.modelo}}</li>
+    <li>Tamaño de Pantalla: {{televisor.tamano_pantalla}}</li>
+    <li>Descripción: {{televisor.descripcion}}</li>
+    <li>Precio: {{televisor.precio}}</li>
+</ul>
+<li class="list-inline-item"> </li>
+<input type="button" onclick="history.back()" name="Volver" value="Volver">
+{% endblock main %}

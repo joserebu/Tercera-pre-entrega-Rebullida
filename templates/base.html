@@ -24,10 +24,25 @@
             <div class="container">
                 <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
                 <a class="navbar-brand" href={% url "cocina" %}>Cocinas</a>
-                <a class="navbar-brand" href={% url "crear_cocina" %}>Crear cocina</a>
-                <a class="navbar-brand" href={% url "heladera" %}>Heladeras</a>
                 <a class="navbar-brand" href={% url "televisor" %}>Televisores</a>
-                {% comment "" %}<a class="btn btn-primary" href="#signup">Sign Up</a>{% endcomment %}
+                <a class="navbar-brand" href={% url "heladera" %}>Heladeras</a>
+                {% comment %} <a class="navbar-brand" href={% url "crear_cocina" %}>Crear cocina</a> {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url "heladera" %}>Heladeras</a> {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url "crear_televisor" %}>Crear televisor</a> {% endcomment %}
+                {% if not request.user.is_authenticated %}
+                <a class="btn btn-primary btn-sm" href={% url "login" %}>Iniciar Sesión</a>
+                <a class="btn btn-secondary btn-sm" href={% url "registrarse" %}>Registrarse</a>
+                {% else %}                
+                {% comment %} <a class="navbar-brand" href={% url "editar_perfil" %}> {% endcomment %}
+                <a class="navbar-brand" href={% url "detalle_usuario" %}>
+                    {% if request.user.datosextra.avatar %}
+                        <img src={{request.user.datosextra.avatar.url}} alt="avatar" height='60px'>
+                    {% else %}
+                        {{request.user.username}}
+                    {% endif %}
+                </a>
+                <a class="btn btn-warning btn-sm" href={% url "logout" %}>Cerrar Sesión</a>
+                {% endif %}
             </div>
         </nav>
         <!-- Masthead-->
@@ -57,29 +72,12 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item"><a href="#!">Acerca</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </footer>

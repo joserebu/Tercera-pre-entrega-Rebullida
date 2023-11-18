@@ -1,27 +1,20 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Crear Cocina</title>
+<title>Eliminar heladera</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear Cocina
+Eliminar heladera
 {% endblock h1_header %}
 
 {% block main %}
-<p>
-    <b>Ingrese los datos de la cocina a dar de alta:</b>
-</p>
-
 
 <form action="" method="POST">
     {% csrf_token %}
-    <table>
-        {{formulario.media}}
-        {{formulario}}
-    </table>
+    Desea eliminar la heladera {{heladera.id}} - {{heladera.marca}} - {{heladera.modelo}} - {{heladera.precio}}?
     <li class="list-inline-item"> </li>
-    <input type="submit" value="Crear">
+    <input type="submit" value="Aceptar">
     <li class="list-inline-item"> </li>
     <input type="button" onclick="history.back()" name="Volver" value="Volver">
 </form>

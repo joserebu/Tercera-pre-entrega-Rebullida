@@ -9,5 +9,24 @@ Heladeras
 {% endblock h1_header %}
 
 {% block main %}
-Se ha creado la heladera {{heladera.marca}} - {{heladera.modelo}}
+
+<p>
+    <a href={% url "crear_heladera" %}> Crear Heladera</a>
+</p>
+
+<form action="">
+    <input type="text" name="marca" placeholder="Bamby, Whirlpool..." >
+    <input type="submit" value="Buscar">
+</form>
+
+{% if listado_heladera %}
+<ul>
+    {% for heladera in listado_heladera %}
+    <li>{{heladera}} | <a href={% url "detalle_heladera" heladera.id %}>Detalle</a> | <a href={% url "editar_heladera" heladera.id %}>Editar</a> | <a href={% url "eliminar_heladera" heladera.id %}>Eliminar</a> | </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p> No existen heladeras para mostrar </p>
+{% endif %}
+
 {% endblock main %}

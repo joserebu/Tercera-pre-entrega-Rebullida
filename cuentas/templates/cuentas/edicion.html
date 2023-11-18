@@ -1,29 +1,26 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Crear Cocina</title>
+<title>Editar perfil</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear Cocina
+Editar perfil
 {% endblock h1_header %}
 
 {% block main %}
-<p>
-    <b>Ingrese los datos de la cocina a dar de alta:</b>
-</p>
 
-
-<form action="" method="POST">
+<form action={% url "editar_perfil" %} method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
-        {{formulario.media}}
-        {{formulario}}
+        {{formulario_edicion}}
     </table>
     <li class="list-inline-item"> </li>
-    <input type="submit" value="Crear">
+    <input type="submit" value="Editar">
     <li class="list-inline-item"> </li>
     <input type="button" onclick="history.back()" name="Volver" value="Volver">
 </form>
+<li class="list-inline-item"> </li>
+<h6>Si desea cambiar su contraseña haga click aquí: <a href={% url "cambiar_password" %}>Cambiar contraseña</a></h6>
 
 {% endblock main %}

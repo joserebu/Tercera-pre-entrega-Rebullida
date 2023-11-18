@@ -9,5 +9,25 @@ Televisores
 {% endblock h1_header %}
 
 {% block main %}
-Se ha creado el televisor {{televisor.marca}} - {{televisor.modelo}}
+
+<p>
+    <a href={% url "crear_televisor" %}> Crear televisor</a>
+</p>
+
+<form action="">
+    <input type="text" name="marca" placeholder="Sony, Samsung..." >
+    {% comment %} {{formulario}} {% endcomment %}
+    <input type="submit" value="Buscar">
+</form>
+
+{% if listado_televisor %}
+<ul>
+    {% for televisor in listado_televisor %}
+    <li>{{televisor}} | <a href={% url "detalle_televisor" televisor.id %}>Detalle</a> | <a href={% url "editar_televisor" televisor.id %}>Editar</a> | <a href={% url "eliminar_televisor" televisor.id %}>Eliminar</a> | </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p> No existen televisores para mostrar </p>
+{% endif %}
+
 {% endblock main %}

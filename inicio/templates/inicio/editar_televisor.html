@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Crear Cocina</title>
+<title>Editar televisor</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear Cocina
+Editar Televisor
 {% endblock h1_header %}
 
 {% block main %}
 <p>
-    <b>Ingrese los datos de la cocina a dar de alta:</b>
+    <b>Ingrese los datos del televisor</b>
 </p>
 
 
@@ -18,10 +18,10 @@ Crear Cocina
     {% csrf_token %}
     <table>
         {{formulario.media}}
-        {{formulario}}
+        {{formulario_tv}}
     </table>
     <li class="list-inline-item"> </li>
-    <input type="submit" value="Crear">
+    <input type="submit" value="Editar">
     <li class="list-inline-item"> </li>
     <input type="button" onclick="history.back()" name="Volver" value="Volver">
 </form>

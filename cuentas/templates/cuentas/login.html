@@ -1,29 +1,26 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-<title>Crear Cocina</title>
+<title>Login</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear Cocina
+Iniciar Sesión
 {% endblock h1_header %}
 
 {% block main %}
-<p>
-    <b>Ingrese los datos de la cocina a dar de alta:</b>
-</p>
 
-
-<form action="" method="POST">
+<form action={% url "login" %} method="POST">
     {% csrf_token %}
     <table>
-        {{formulario.media}}
-        {{formulario}}
+        {{formulario_ingreso}}
     </table>
+    
     <li class="list-inline-item"> </li>
-    <input type="submit" value="Crear">
+    <input type="submit" value="Iniciar Sesión">
     <li class="list-inline-item"> </li>
     <input type="button" onclick="history.back()" name="Volver" value="Volver">
+
 </form>
 
 {% endblock main %}

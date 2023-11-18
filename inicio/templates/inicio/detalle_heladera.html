@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+<title>Detalle heladera {{heladera.id}}</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Detalle Heladera {{heladera.marca}}
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Marca: {{heladera.marca}}</li>
+    <li>Modelo: {{heladera.modelo}}</li>
+    <li>Descripción: {{heladera.descripcion}}</li>
+    <li>Tipo de freezer: {{heladera.tipo_freezer}}</li>
+    <li>Precio: {{heladera.precio}}</li>
+</ul>
+<li class="list-inline-item"> </li>
+<input type="button" onclick="history.back()" name="Volver" value="Volver">
+{% endblock main %}
